@@ -1,12 +1,14 @@
 ########################   UseCase - 1 ##############################
-
+from dotenv import load_dotenv
 import streamlit as st
 import requests
 import json
+import os
+import requests
 
 # Function to send email
 def send_email(receiver_emails, subject, body):
-    url = 'http://54.84.189.207/send_email/'
+    url = os.getenv('MAILLINK')
     headers = {
         'accept': 'application/json',
         'Content-Type': 'application/json'
@@ -21,7 +23,7 @@ def send_email(receiver_emails, subject, body):
 
 # Function to post to LinkedIn
 def post_linkedin(title, image_url, text_content):
-    url = 'http://54.84.189.207/post_linkedin/'
+    url = os.getenv('LINKEDIN')
     headers = {
         'accept': 'application/json',
         'Content-Type': 'application/json'
